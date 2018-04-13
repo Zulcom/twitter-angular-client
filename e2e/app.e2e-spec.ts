@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('twangular App', () => {
+describe('It nodetweet App', () => {
   let page: AppPage;
 
   beforeEach(() => {

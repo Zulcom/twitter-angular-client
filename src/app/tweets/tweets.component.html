@@ -1,3 +1,7 @@
+<div class="sendTweet">
+  <input type="text" name="tweetText" id="tweetText">
+  <button type="button" class="btn btn-icon" (click)="sendTweet()">Твитнуть</button>
+</div>
 <div class="tweets">
   <div class="card" *ngFor="let tweet of tweets; let i = index">
     <app-tweet *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet" (action)="action($event, i)"></app-tweet>

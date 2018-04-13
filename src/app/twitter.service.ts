@@ -24,4 +24,7 @@ export class TwitterService {
   action(property: 'favorite'|'retweet', id: string, state: boolean) {
     return this.http.post<TwitterResponse>(`${environment.api}/${property}/${id}`, {state});
   }
+  sendTweet(text: string) {
+      return this.http.post<TwitterResponse>(`${environment.api}/statuses/update/`, {text});
+  }
 }

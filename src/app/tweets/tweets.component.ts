@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Tweet } from '../tweet';
-import { TwitterService } from '../twitter.service';
+import {TwitterResponse, TwitterService} from '../twitter.service';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-tweets',
@@ -62,4 +63,15 @@ export class TweetsComponent implements OnInit, OnDestroy {
       this.inflight = false;
     });
   }
+  sendTweet() {
+      if (this.inflight) {
+          return;
+      }
+      this.inflight = true;
+      this.twitter.sendTweet((<HTMLInputElement>document.getElementById('tweetText')).value).subscribe(tweet => {
+          this.getTweets();
+          this.inflight = false;
+      });
+  }
+
 }

@@ -60,5 +60,7 @@ app.post('/api/retweet/:id', (req, res) => {
     .then(tweet => res.send(tweet))
     .catch(error => res.send(error));
 });
-
+app.post('/api/statuses/update/', (req, res) => {
+    client.post('statuses/update', {status: req.body.text});
+});
 app.listen(3000, () => console.log('Server running'));
